@@ -1,0 +1,8 @@
+target/
+*.iml
+.idea/
+*.log
+*.DS_Store
+.env
+# keep secrets out of git
+src/main/resources/application-*.yml
