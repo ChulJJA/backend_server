@@ -3,6 +3,28 @@ spring:
     name: moim-backend
   profiles:
     active: dev
+  security:
+    user:
+      name: clee
+      password: 1234
 
 server:
   port: 8080
+
+logging:
+  level:
+    root: info
+    org.springframework.web: info
+    # your base package here:
+    net.moim: debug
+  file:
+    name: logs/moim-backend.log
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: when_authorized

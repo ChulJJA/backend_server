@@ -2,16 +2,32 @@ services:
   mariadb:
     image: mariadb:11
     container_name: moim-mariadb
+    restart: unless-stopped
     environment:
-      MARIADB_ROOT_PASSWORD: 1234
-      MARIADB_DATABASE: moim
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+      MARIADB_DATABASE: ${MARIADB_DATABASE}
     ports:
       - "3306:3306"
     command:
       - --character-set-server=utf8mb4
       - --collation-server=utf8mb4_unicode_ci
     healthcheck:
-      test: ["CMD", "mariadb-admin", "ping", "-h", "127.0.0.1", "-uroot", "-proot"]
+      test: ["CMD", "mariadb-admin", "ping", "-h", "127.0.0.1", "-u${MARIADB_USER}", "-p${MARIADB_PASSWORD}"]
       interval: 5s
       timeout: 3s
       retries: 20
+
+  app:
+    build: .
+    container_name: moim-backend
+    restart: unless-stopped
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-docker}
+      SPRING_DATASOURCE_URL: jdbc:mariadb://mariadb:3306/${MARIADB_DATABASE:-moim}?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
+    ports:
+      - "8080:8080"

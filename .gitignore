@@ -3,6 +3,6 @@ target/
 .idea/
 *.log
 *.DS_Store
-.env
+moim-backend/.env
 # keep secrets out of git
 src/main/resources/application-*.yml
