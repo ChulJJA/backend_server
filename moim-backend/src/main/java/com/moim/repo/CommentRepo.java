@@ -1,7 +1,7 @@
 /*
  * File: CommentRepo.java
  * Project: Moim Back-end
- * Desc:
+ * Desc: Custom queries by method.
  * Author: ChulJJA
  * Created: 09.07.2025.
  * Last Modified: 09.07.2025.
