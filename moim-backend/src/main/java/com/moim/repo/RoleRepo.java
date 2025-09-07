@@ -1,0 +1,18 @@
+/*
+ * File: RoleRepo.java
+ * Project: Moim Back-end
+ * Desc:
+ * Author: ChulJJA
+ * Created: 09.07.2025.
+ * Last Modified: 09.07.2025.
+ */
+
+package com.moim.repo;
+
+import com.moim.domain.Role;
+import java.util.Optional;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface RoleRepo extends JpaRepository<Role, Long> {
+    Optional<Role> findByCode(String code);
+}
