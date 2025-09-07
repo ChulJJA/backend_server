@@ -9,9 +9,9 @@
 
 package com.moim.domain;
 
-import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*; // JPA annotations for ORM (mapping Java classes to DB tables)
+import lombok.Getter; // Lombok annotation to auto-generate getter methods
+import lombok.Setter; // Lombok annotation to auto-generate setter methods
 
 @Entity @Table(name="roles")
 @Getter @Setter

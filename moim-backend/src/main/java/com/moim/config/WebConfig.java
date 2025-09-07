@@ -15,7 +15,7 @@ import org.springframework.web.cors.CorsConfiguration; // Holds settings for Cro
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource; // Maps CORS configuration to URL patterns.
 import org.springframework.web.filter.CorsFilter; // Filter applied to requests to enforce CORS rules.
 
-import java.util.List;
+import java.util.List; // Ordered collection interface, allows duplicates.
 
 // Specifies HTTP Methods, headers
 @Configuration

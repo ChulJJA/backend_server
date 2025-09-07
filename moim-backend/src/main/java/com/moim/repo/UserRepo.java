@@ -9,9 +9,9 @@
 
 package com.moim.repo;
 
-    import com.moim.domain.User;
-import java.util.Optional;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.moim.domain.User;
+import java.util.Optional; // Container for an optional (nullable) value
+import org.springframework.data.jpa.repository.JpaRepository; // Spring Data JPA base repository interface
 
 public interface UserRepo extends JpaRepository<User, Long> {
     Optional<User> findByEmail(String email);

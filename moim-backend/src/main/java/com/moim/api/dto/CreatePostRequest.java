@@ -9,8 +9,7 @@
 
 package com.moim.api.dto;
 
-import jakarta.validation.constraints.NotBlank;
-import java.time.Instant;
+import jakarta.validation.constraints.NotBlank; // Ensures String is not null, empty, or whitespace-only.
 
 public record CreatePostRequest(
         @NotBlank String title,

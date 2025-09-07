@@ -10,10 +10,10 @@
 package com.moim.repo;
 
 import com.moim.domain.Community;
-import java.util.Optional;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.Optional; // Container for an optional (nullable) value
+import org.springframework.data.domain.Page; // Spring Data object for paginated query results
+import org.springframework.data.domain.Pageable; // Pagination + sorting information for queries
+import org.springframework.data.jpa.repository.JpaRepository; // Spring Data JPA base repository interface
 
 public interface CommunityRepo extends JpaRepository<Community, Long> {
     Optional<Community> findBySlug(String slug);

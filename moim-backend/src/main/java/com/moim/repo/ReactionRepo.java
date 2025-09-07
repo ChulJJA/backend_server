@@ -10,7 +10,7 @@
 package com.moim.repo;
 
 import com.moim.domain.Reaction;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaRepository; // Spring Data JPA base repository interface
 
 public interface ReactionRepo extends JpaRepository<Reaction, Long> {
     long countByPostIdAndType(Long postId, String type);

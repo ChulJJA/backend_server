@@ -9,8 +9,8 @@
 
 package com.moim.api.dto;
 
-import jakarta.validation.constraints.NotBlank;
-import java.time.Instant;
+import jakarta.validation.constraints.NotBlank; // Ensures String is not null, empty, or whitespace-only.
+import java.time.Instant; // Represents a timestamp (date-time in UTC, nanosecond precision)
 
 public record PostResponse(
         Long id, String title, String content,

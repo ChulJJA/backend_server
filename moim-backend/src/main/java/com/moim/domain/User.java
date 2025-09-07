@@ -9,10 +9,10 @@
 
 package com.moim.domain;
 
-import jakarta.persistence.*;
-import java.time.Instant;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*; // JPA annotations for ORM (mapping Java classes to DB tables)
+import java.time.Instant; // Represents a timestamp (date-time in UTC, nanosecond precision)
+import lombok.Getter; // Lombok annotation to auto-generate getter methods
+import lombok.Setter; // Lombok annotation to auto-generate setter methods
 
 @Entity @Table(name="users")
 @Getter @Setter
