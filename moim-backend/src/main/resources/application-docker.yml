@@ -1,3 +1,12 @@
+# -----------------------------------------------------------------------------
+# File: application-docker.yml
+# Project: Moim Back-end
+# Description: Spring Boot configuration for Docker environment.
+# Author: ChulJJA
+# Created: 2025-09-01
+# Last Modified: 2025-09-06
+# -----------------------------------------------------------------------------
+
 spring:
   datasource:
     url: jdbc:mariadb://db:3306/moim?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false

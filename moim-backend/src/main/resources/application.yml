@@ -1,8 +1,19 @@
+# -----------------------------------------------------------------------------
+# File: application.yml
+# Project: Moim Back-end
+# Desc: Spring Boot application configuration in YAML format. Defines core
+#       settings such as application name, server options, database connection,
+#       profiles, and other environment-specific configurations.
+# Author: ChulJJA
+# Created: 09.01.2025.
+# Last Modified: 09.06.2025.
+# -----------------------------------------------------------------------------
+
 spring:
   application:
     name: moim-backend
   profiles:
-    active: dev
+    active: dev # Spring Boot will load application-dev.yml (if present) alongside this file.
   security:
     user:
       name: clee
@@ -28,3 +39,12 @@ management:
   endpoint:
     health:
       show-details: when_authorized
+
+info:
+  app:
+    name: Moim Server
+    description: Backend service for the Moim community platform
+    version: 1.0.0
+  author:
+    name: ChulJJA
+    email: cj.chuleee@gmail.com

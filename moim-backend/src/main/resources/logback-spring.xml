@@ -1,13 +1,23 @@
+<!--
+  File: logback-spring.xml
+  Project: Moim Back-end
+  Description: Logback configuration for Moim backend service.
+  Author: ChulJJA
+  Created: 2025-09-01
+  Last Modified: 2025-09-06
+-->
+
 <configuration>
     <property name="LOG_FILE" value="logs/moim-backend.log"/>
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_FILE}</file>
         <encoder>
+            <!-- Writes logs to a file with rotation. -->
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{36} - %msg%n</pattern>
         </encoder>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy"> <!-- Rotates log files daily. -->
             <fileNamePattern>logs/moim-backend.%d{yyyy-MM-dd}.log</fileNamePattern>
-            <maxHistory>7</maxHistory>
+            <maxHistory>100</maxHistory> <!-- Keeps logs for n days. -->
         </rollingPolicy>
     </appender>
     <root level="INFO">

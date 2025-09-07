@@ -1,3 +1,12 @@
+# -----------------------------------------------------------------------------
+# File: docker-compose.yml
+# Project: Moim Back-end
+# Description: Docker Compose configuration for Moim backend service and MariaDB.
+# Author: ChulJJA
+# Created: 2025-09-01
+# Last Modified: 2025-09-06
+# -----------------------------------------------------------------------------
+
 services:
   mariadb:
     image: mariadb:11
@@ -12,6 +21,7 @@ services:
       - --character-set-server=utf8mb4
       - --collation-server=utf8mb4_unicode_ci
     healthcheck:
+      # Waits until MariaDB responds before marking service as healthy.
       test: ["CMD", "mariadb-admin", "ping", "-h", "127.0.0.1", "-u${MARIADB_USER}", "-p${MARIADB_PASSWORD}"]
       interval: 5s
       timeout: 3s
