@@ -27,7 +27,7 @@ logging:
     root: info
     org.springframework.web: info
     # your base package here:
-    net.moim: debug
+    com.moim: debug
   file:
     name: logs/moim-backend.log
 
@@ -35,7 +35,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info,metrics
+        include: health,info,metrics,mappings
   endpoint:
     health:
       show-details: when_authorized

@@ -21,7 +21,7 @@ public class Post {
     @ManyToOne(fetch=FetchType.LAZY) @JoinColumn(name="board_id", nullable=false) Board board;
     @ManyToOne(fetch=FetchType.LAZY) @JoinColumn(name="author_id", nullable=false) User author;
     @Column(nullable=false) String title;
-    @Lob @Column(nullable=false) String content;
+    @Lob @Column(nullable = false, columnDefinition = "TEXT") String content;
     @Column(nullable=false) Instant createdAt = Instant.now();
     Instant updatedAt;
 }

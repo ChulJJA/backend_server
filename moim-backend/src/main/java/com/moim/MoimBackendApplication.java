@@ -7,13 +7,17 @@
  * Last Modified: 09.06.2025.
  */
 
-package com.moim.moim_backend;
+package com.moim;
 
 import org.springframework.boot.SpringApplication; // Bootstraps and launches the Spring application.
 import org.springframework.boot.autoconfigure.SpringBootApplication; // Marks this class as the main entry point for Spring Boot.
+//import org.springframework.boot.autoconfigure.domain.EntityScan;
+//import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-                    // Ensures Spring scans all sub-packages under com.moim
+// Ensures Spring scans all sub-packages under com.moim
 @SpringBootApplication(scanBasePackages = {"com.moim"})
+//@EnableJpaRepositories(basePackages = "com.moim.repo")
+//@EntityScan(basePackages = "com.moim.domain")
 public class MoimBackendApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MoimBackendApplication.class, args);

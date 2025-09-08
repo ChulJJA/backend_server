@@ -20,6 +20,6 @@ public class Comment {
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY) Long id;
     @ManyToOne(fetch=FetchType.LAZY) @JoinColumn(name="post_id", nullable=false) Post post;
     @ManyToOne(fetch=FetchType.LAZY) @JoinColumn(name="author_id", nullable=false) User author;
-    @Lob @Column(nullable=false) String content;
+    @Lob @Column(nullable = false, columnDefinition = "TEXT") String content;
     @Column(nullable=false) Instant createdAt = Instant.now();
 }
