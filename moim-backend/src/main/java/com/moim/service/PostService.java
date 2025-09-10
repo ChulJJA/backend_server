@@ -1,10 +1,10 @@
 /*
  * File: PostService.java
  * Project: Moim Back-end
- * Desc:
+ * Desc: Service for POST method.
  * Author: ChulJJA
  * Created: 09.07.2025.
- * Last Modified: 09.07.2025.
+ * Last Modified: 09.08.2025.
  */
 
 package com.moim.service;
@@ -19,11 +19,12 @@ import com.moim.repo.PostRepo;
 import com.moim.repo.UserRepo;
 import com.moim.repo.ReactionRepo;
 import com.moim.exception.NotFoundException;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import lombok.RequiredArgsConstructor;
+
+import org.springframework.stereotype.Service; // Marks class as a Spring service component
+import org.springframework.transaction.annotation.Transactional; // Declares transactional boundaries
+import org.springframework.data.domain.Page; // Paginated result container
+import org.springframework.data.domain.Pageable; // Pagination + sorting info for queries
+import lombok.RequiredArgsConstructor; // Generates constructor for final fields (dependency injection)
 
 @Service
 @RequiredArgsConstructor

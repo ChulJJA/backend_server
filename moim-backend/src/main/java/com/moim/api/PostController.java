@@ -4,12 +4,10 @@
  * Desc: Maps HTTP requests to methods
  * Author: ChulJJA
  * Created: 09.07.2025.
- * Last Modified: 09.07.2025.
+ * Last Modified: 09.08.2025.
  */
 
 package com.moim.api;
-
-import lombok.extern.slf4j.Slf4j;
 
 import com.moim.repo.CommunityRepo;
 import com.moim.repo.BoardRepo;
@@ -19,19 +17,20 @@ import com.moim.api.dto.CreatePostRequest;
 import com.moim.api.dto.PostResponse;
 import com.moim.exception.NotFoundException;
 
-import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RestController; // Marks class as REST controller
+import org.springframework.web.bind.annotation.RequestMapping; // Base path mapping for controller
+import org.springframework.web.bind.annotation.PostMapping; // Maps HTTP POST requests
+import org.springframework.web.bind.annotation.GetMapping; // Maps HTTP GET requests
+import org.springframework.web.bind.annotation.PathVariable; // Binds URL path segments to params
+import org.springframework.web.bind.annotation.RequestParam; // Binds query parameters to params
+import org.springframework.web.bind.annotation.RequestBody; // Binds JSON body to an object
+import org.springframework.data.domain.Page; // Page wrapper for paginated results
+import org.springframework.data.domain.PageRequest; // Factory for Pageable (page + size + sort)
+import org.springframework.data.domain.Sort; // Sorting specification for queries
 
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
+import jakarta.validation.Valid; // Enables bean validation on method params/bodies
+import lombok.RequiredArgsConstructor; // Generates constructor for final fields (great for DI)
+import lombok.extern.slf4j.Slf4j; // Adds 'log' logger field (SLF4J)
 
 @Slf4j
 @RestController
@@ -69,7 +68,6 @@ public class PostController {
             @RequestParam(defaultValue="0") int page,
             @RequestParam(defaultValue="20") int size
     ) {
-        log.info("hit");
         Long boardId = resolveBoardId(slug, boardSlug);
         return postService.list(boardId, PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "createdAt")));
     }
