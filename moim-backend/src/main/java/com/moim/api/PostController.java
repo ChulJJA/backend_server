@@ -4,7 +4,7 @@
  * Desc: Maps HTTP requests to methods
  * Author: ChulJJA
  * Created: 09.07.2025.
- * Last Modified: 09.08.2025.
+ * Last Modified: 09.09.2025.
  */
 
 package com.moim.api;
@@ -27,6 +27,8 @@ import org.springframework.web.bind.annotation.RequestBody; // Binds JSON body t
 import org.springframework.data.domain.Page; // Page wrapper for paginated results
 import org.springframework.data.domain.PageRequest; // Factory for Pageable (page + size + sort)
 import org.springframework.data.domain.Sort; // Sorting specification for queries
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import jakarta.validation.Valid; // Enables bean validation on method params/bodies
 import lombok.RequiredArgsConstructor; // Generates constructor for final fields (great for DI)
@@ -56,8 +58,10 @@ public class PostController {
             @Valid @RequestBody CreatePostRequest req
     ) {
         Long boardId = resolveBoardId(slug, boardSlug);
-        Long authorId = userRepo.findByEmail("cj.chuleee@gmail.com")
-                .orElseThrow(() -> new NotFoundException("User")).getId(); // TODO: replace with auth principal
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String email = (auth != null) ? (String) auth.getPrincipal() : null;
+        Long authorId = userRepo.findByEmail(email)
+                .orElseThrow(() -> new NotFoundException("User")).getId();
         return postService.create(boardId, authorId, req);
     }
 

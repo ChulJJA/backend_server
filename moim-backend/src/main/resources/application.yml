@@ -26,6 +26,7 @@ logging:
   level:
     root: info
     org.springframework.web: info
+    org.springframework.security: DEBUG
     # your base package here:
     com.moim: debug
   file:
@@ -48,3 +49,9 @@ info:
   author:
     name: ChulJJA
     email: cj.chuleee@gmail.com
+
+#app:
+#  jwt:
+#    issuer: moim-app
+#    secret: change-this-dev-secret-please-change-it-32+chars
+#    access-token-minutes: 60

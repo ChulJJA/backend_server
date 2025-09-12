@@ -4,7 +4,7 @@
 # Desc: Spring Boot application configuration in YAML format.
 # Author: ChulJJA
 # Created: 09.01.2025.
-# Last Modified: 09.06.2025.
+# Last Modified: 09.09.2025.
 # -----------------------------------------------------------------------------
 
 spring:
@@ -36,8 +36,8 @@ management:
       enabled: true
 
 app:
-  # JWT (JSON Web Toke) settings.
+  # JWT (JSON Web Token) settings.
   jwt:
     issuer: moim-app
-    secret: change-this-dev-secret-please
+    secret: dl1cjf2tmd3!rkd4gus@rla5cks6gh7#rla8xo9gh9$
     access-token-minutes: 60
