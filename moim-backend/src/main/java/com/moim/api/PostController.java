@@ -29,6 +29,7 @@ import org.springframework.data.domain.PageRequest; // Factory for Pageable (pag
 import org.springframework.data.domain.Sort; // Sorting specification for queries
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 import jakarta.validation.Valid; // Enables bean validation on method params/bodies
 import lombok.RequiredArgsConstructor; // Generates constructor for final fields (great for DI)
@@ -38,6 +39,7 @@ import lombok.extern.slf4j.Slf4j; // Adds 'log' logger field (SLF4J)
 @RestController
 @RequestMapping("/api/v1/communities/{slug}/boards/{boardSlug}/posts")
 @RequiredArgsConstructor
+//@PreAuthorize("hasRole('ADMIN')")
 public class PostController {
     private final CommunityRepo communityRepo;
     private final BoardRepo boardRepo;
