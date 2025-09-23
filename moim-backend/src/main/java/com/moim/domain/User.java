@@ -27,6 +27,7 @@ public class User {
     @Column(nullable=false, unique=true) String email;
     @Column(nullable=false, name="password_hash") String passwordHash;
     @Column(nullable=false) String nickname;
+    @Column(nullable=false, name="current_community_id") Long currentCommunityID;
     @Column(nullable=false, columnDefinition="timestamp default current_timestamp")
     Instant createdAt = Instant.now();
 
