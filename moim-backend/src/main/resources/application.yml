@@ -50,8 +50,8 @@ info:
     name: ChulJJA
     email: cj.chuleee@gmail.com
 
-#app:
-#  jwt:
-#    issuer: moim-app
-#    secret: change-this-dev-secret-please-change-it-32+chars
-#    access-token-minutes: 60
+app:
+  jwt:
+    issuer: moim-app
+    secret: change-this-dev-secret-please-change-it-32+chars
+    access-token-minutes: 60

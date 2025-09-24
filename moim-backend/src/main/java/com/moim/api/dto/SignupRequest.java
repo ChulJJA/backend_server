@@ -9,4 +9,4 @@
 
 package com.moim.api.dto;
 
-public record SignupRequest(String email, String password, String nickname) {}
+public record SignupRequest(String email, String password, String nickname, String communitySlug) {}
